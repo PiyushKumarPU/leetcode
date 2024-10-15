@@ -20,15 +20,18 @@ public class TwoSum {
 
     // O(n) with O(n) space
     public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-
+        HashMap<Integer, Integer> valIndexMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            int opp = target - nums[i];
-            if (map.containsKey(opp)) {
-                return new int[]{i, map.get(opp)};
+            int remaining = target - nums[i];
+            if (valIndexMap.containsKey(remaining)) {
+                return new int[]{i, valIndexMap.get(remaining)};
             }
-            map.put(nums[i], i);
+            valIndexMap.put(nums[i], i);
         }
         return new int[]{};
+    }
+
+    public static void main(String[] args) {
+
     }
 }
